@@ -20,6 +20,7 @@
     display: flex;
     list-style: none;
     gap: 20px;
+    margin-left: 90px;
   }
   
   .footer_icons svg {
@@ -38,12 +39,14 @@
     grid-template-columns: repeat(4, 1fr);
     gap: 25px;
     margin-bottom: 30px;
+    
   }
   
   .footer_data ul {
     list-style: none;
     padding: 0;
     margin: 0;
+    margin-left: 90px
   }
   
   .footer_data ul li {
@@ -69,6 +72,7 @@
     font-size: 14px;
     cursor: pointer;
     transition: 0.3s ease;
+    margin-left: 90px
   }
   
   .service_code p:hover {
@@ -81,6 +85,7 @@
     margin-top: 10px;
     font-size: 13px;
     color: #757575;
+    margin-left: 90px
   }
   
   /* RESPONSIVE DESIGN */
