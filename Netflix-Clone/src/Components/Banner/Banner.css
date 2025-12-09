@@ -59,4 +59,85 @@
       #111
     );
   }
-  
+  /* ============================================
+   MEDIA QUERIES FOR RESPONSIVE BANNER
+   ============================================ */
+
+/* Tablets (max-width: 1024px) */
+@media (max-width: 1024px) {
+  .banner {
+    height: 380px;
+  }
+
+  .banner_contents {
+    padding-top: 80px;
+    margin-left: 20px;
+  }
+
+  .banner_title {
+    font-size: 1.8rem;
+  }
+
+  .banner_description {
+    width: 80%;
+    max-width: 500px;
+    font-size: 0.95rem;
+  }
+}
+
+/* Mobile Large (max-width: 768px) */
+@media (max-width: 768px) {
+  .banner {
+    height: 320px;
+  }
+
+  .banner_contents {
+    padding-top: 70px;
+    margin-left: 15px;
+  }
+
+  .banner_title {
+    font-size: 1.5rem;
+  }
+
+  .banner_description {
+    width: 90%;
+    max-width: none;
+    font-size: 0.9rem;
+    height: auto;
+  }
+
+  .banner_button {
+    padding: 0.4rem 1.3rem;
+    font-size: 0.9rem;
+    margin-right: 1rem;
+  }
+}
+
+/* Mobile Small (max-width: 480px) */
+@media (max-width: 480px) {
+  .banner {
+    height: 280px;
+  }
+
+  .banner_contents {
+    padding-top: 60px;
+    margin-left: 10px;
+  }
+
+  .banner_title {
+    font-size: 1.2rem;
+  }
+
+  .banner_description {
+    font-size: 0.8rem;
+    line-height: 1.1;
+    width: 95%;
+  }
+
+  .banner_button {
+    padding: 0.35rem 1rem;
+    font-size: 0.8rem;
+    margin-right: 0.6rem;
+  }
+}
