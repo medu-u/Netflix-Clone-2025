@@ -1,39 +1,75 @@
-import React from "react";
-import "./Header.css";
-import NetflixLogo from '../../assets/image/netflix.svg';
+import { useState, useEffect } from "react";
 import SearchIcon from "@mui/icons-material/Search";
-import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
-import AccountBoxIcon from "@mui/icons-material/AccountBox";
+import NotificationsIcon from "@mui/icons-material/Notifications";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import AccountBoxIcon from "@mui/icons-material/AccountBox";
+import MenuIcon from "@mui/icons-material/Menu";
+import CloseIcon from "@mui/icons-material/Close";
+
+import style from "./Header.module.css";
+import logo from "../../assets/image/netflix.svg";
 
 function Header() {
+  const [show, setShow] = useState(false);
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShow(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <div className="header_outer_container">
-      <div className="header_container">
-        <div className="header_left">
-          <ul>
-            <li> <img src={NetflixLogo} alt= "Netflix Logo" width = "100" /></li>
+    <>
+      <nav
+        style={{
+          backgroundColor: show ? "rgb(17,17,17)" : "transparent",
+        }}
+        className={`${style.navbar} ${open ? style.navbarOpen : ""}`}
+      >
+        <div className={style.leftNavContainer}>
+          <ul className={`${style.links} ${open ? style.active : ""}`}>
+            <li>
+              <img className={style.logo} src={logo} alt="Netflix Logo" />
+            </li>
             <li>Home</li>
-            <li>TVShows</li>
+            <li>TV Shows</li>
             <li>Movies</li>
             <li>Latest</li>
-            <li>MyList</li>
-            <li>Browse by Languages</li>
+            <li>My List</li>
+            <li>Browse by Language</li>
           </ul>
         </div>
-        <div className='header_right'> 
-            <ul>
-                <li> <SearchIcon /></li>
-                <li><NotificationsNoneIcon /></li>
-                <li> <AccountBoxIcon /></li>
-                <li><ArrowDropDownIcon /></li>
-            </ul>
-        </div> 
-      </div>
-    </div>
+
+        <div className={style.menu} onClick={() => setOpen(!open)}>
+          {open ? (
+            <CloseIcon style={{ fontSize: 28 }} />
+          ) : (
+            <MenuIcon style={{ fontSize: 28 }} />
+          )}
+        </div>
+
+        <div className={style.rightNavContainer}>
+          <ul className={style.links}>
+            <li>
+              <SearchIcon />
+            </li>
+            <li>
+              <NotificationsIcon />
+            </li>
+            <li>
+              <AccountBoxIcon />
+            </li>
+            <li>
+              <ArrowDropDownIcon />
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </>
   );
 }
 
 export default Header;
-
-
